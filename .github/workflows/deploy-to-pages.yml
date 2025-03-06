@@ -30,10 +30,20 @@ jobs:
           # For a static site, this might just be copying files
           
       - name: Upload artifact
-        uses: actions/upload-artifact@v4  # Using v4 instead of deprecated v3
+        uses: actions/upload-artifact@v4
         with:
           name: github-pages
-          path: .
+          path: |
+            index.html
+            css/**
+            js/**
+            img/**
+            *.html
+            *.ico
+            assets/**
+            !node_modules/**
+            !.git/**
+          compression-level: 9
           if-no-files-found: error
           
   deploy:

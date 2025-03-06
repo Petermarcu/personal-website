@@ -40,5 +40,17 @@ This website is configured to automatically deploy to GitHub Pages using GitHub 
 1. Create a new GitHub repository
 2. Push this code to the repository's main branch
 3. Go to repository Settings > Pages
-4. Under "Build and deployment" > "Source", select "GitHub Actions"
-5. The site will be deployed automatically and will be available at `https://[your-username].github.io/[repository-name]/`
+4. Under "Source", select "GitHub Actions" (not Branch)
+5. No further configuration is needed as the workflow file is already set up
+6. GitHub will automatically run the workflow when you push to the main branch
+7. Once deployed, your site will be available at `https://[your-username].github.io/[repository-name]/`
+
+### Troubleshooting Deployment
+
+If you encounter deployment issues:
+- Check that your repository doesn't contain large binary files or symlinks
+- Ensure GitHub Actions has proper permissions set in repository settings
+- Review the Actions tab for detailed error messages
+- The workflow is configured to include only web-related files (HTML, CSS, JS, and images)
+
+Note: If this is the first time you're deploying with GitHub Actions, you might need to go to the "Actions" tab and enable workflows for the repository.
