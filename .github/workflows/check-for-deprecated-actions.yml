@@ -1,0 +1,16 @@
+name: Check for Deprecated Actions
+
+on:
+  workflow_dispatch:  # Manual trigger
+
+jobs:
+  check-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Check for deprecated actions
+        run: |
+          echo "Checking for deprecated actions in workflow files..."
+          grep -r "actions/upload-artifact@v3" .github/workflows/ || echo "No references to deprecated v3 found"
