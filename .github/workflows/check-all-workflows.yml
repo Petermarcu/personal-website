@@ -1,0 +1,25 @@
+name: Check All Workflow Files
+
+on:
+  workflow_dispatch:  # Manual trigger
+
+jobs:
+  find-all-workflows:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: List all workflow files
+        run: |
+          find .github -type f -name "*.yml" -o -name "*.yaml" | sort
+          
+      - name: Check for deprecated actions
+        run: |
+          echo "Checking for deprecated actions in all files..."
+          grep -r "actions/upload-artifact@v3" . || echo "No references to deprecated v3 found"
+          
+      - name: Check hidden files
+        run: |
+          echo "Listing all hidden files that might contain workflows..."
+          find . -type f -name ".*" | grep -v ".git/" | sort

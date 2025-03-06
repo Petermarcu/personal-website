@@ -59,4 +59,6 @@ If you still face deployment errors about artifacts:
 2. Ensure "Read and write permissions" is selected under "Workflow permissions"
 3. Try manually triggering the workflow from the Actions tab
 4. Check that none of your files exceed GitHub's file size limits
-5. As a last resort, try creating and deploying a minimal version with just index.html first
+5. Look for hidden or unexpected workflow files in your repository that might be causing conflicts
+6. Temporarily delete the `.github/workflows` folder, then recreate it with only the essential workflow file
+7. Check if there's a default GitHub workflow template being applied at the organization level
