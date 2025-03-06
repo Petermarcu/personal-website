@@ -53,4 +53,10 @@ If you encounter deployment issues:
 - Review the Actions tab for detailed error messages
 - The workflow is configured to include only web-related files (HTML, CSS, JS, and images)
 
-Note: If this is the first time you're deploying with GitHub Actions, you might need to go to the "Actions" tab and enable workflows for the repository.
+#### Advanced Troubleshooting
+If you still face deployment errors about artifacts:
+1. In your repository, go to Settings → Actions → General
+2. Ensure "Read and write permissions" is selected under "Workflow permissions"
+3. Try manually triggering the workflow from the Actions tab
+4. Check that none of your files exceed GitHub's file size limits
+5. As a last resort, try creating and deploying a minimal version with just index.html first

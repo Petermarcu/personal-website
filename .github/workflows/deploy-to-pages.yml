@@ -24,27 +24,17 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
         
-      - name: Build
+      - name: Create deployment directory
         run: |
-          # Add build commands here if needed
-          # For a static site, this might just be copying files
+          mkdir -p _site
+          cp -r index.html css js img assets *.html _site/ 2>/dev/null || :
           
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: github-pages
-          path: |
-            index.html
-            css/**
-            js/**
-            img/**
-            *.html
-            *.ico
-            assets/**
-            !node_modules/**
-            !.git/**
-          compression-level: 9
-          if-no-files-found: error
+          path: _site  # Only upload the _site directory
+          retention-days: 1
           
   deploy:
     environment:
