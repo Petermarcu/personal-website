@@ -8,6 +8,7 @@ A responsive personal portfolio website built with HTML, CSS, and JavaScript.
 - `css/styles.css` - Main stylesheet
 - `js/main.js` - JavaScript functionality
 - `img/` - Directory for images
+- `.github/workflows/` - GitHub Actions workflow files for deployment
 
 ## Features
 
@@ -34,7 +35,7 @@ To run this website locally, simply open the `index.html` file in a web browser.
 
 ## GitHub Pages Deployment
 
-This website is configured to automatically deploy to GitHub Pages. Here's how to set it up:
+This website is configured to automatically deploy to GitHub Pages using GitHub Actions. Here's how to set it up:
 
 1. Create a new GitHub repository
 2. Push this code to the repository's main branch
